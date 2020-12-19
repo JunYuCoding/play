@@ -1,0 +1,175 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.container{
+    position: relative;
+    width: 100%;
+    height: 580px;
+    background-color: rgb(135, 166, 222);
+}
+.top{
+    margin: auto;
+    background-image: url(../imges/top.png);
+    width: 336px;
+    height: 100px;
+    /* background-color: green; */
+}
+.stake{
+    position: relative;
+    top: 20px;
+    left: 520px;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    margin-left: 20px;
+    /* border:1px green solid; */
+    font-size: 30px;
+    text-align: center;
+   
+    font-style: normal;
+}
+.start{
+    margin-left: 45%;
+}
+.buttonArea{
+    margin:10px auto 5px;
+    height: 60px;
+    
+
+}
+.buttonArea div{
+    margin-left: 13px;
+    float: left;
+}
+.stakeArea{
+    margin:0px auto;
+    height: 10px;
+   
+    
+}
+.person1{
+    background-image: url("../imges/player1.png");
+    width: 130px;
+    height: 310px;
+    float: left;
+    margin-left: 20px;
+    /* background-color: hotpink; */
+}
+.person2{
+    background-image: url("../imges/player2.png");
+    width: 140px;
+    height: 310px;
+    float: left;
+    margin-right: 20px;
+}
+
+.player1{
+    /* position: relative;
+    left: 200px; */
+   width: 320px;
+   height: 310px;
+   margin-left: 50px;
+   background-color: rgb(176, 202, 26); 
+   float: left;
+}
+.pukeArea1{
+    position: relative;
+    width: 100%;
+    height: 80%;
+    /* margin: auto ; */
+    /* border: 1px solid black; */
+    /* overflow: scroll; */
+}
+.pukeArea1 div{
+    /* background-color:rgb(90, 9, 90); */
+    position: absolute;
+    top: 7px;
+}
+.pukeArea1 img{
+    
+    width: 120px;
+    height: 180px;
+}
+.pic1{
+    left: 80px;
+    background-image: url(../imges/init_puke.png);
+    background-color: red;
+}
+.pic2{
+    /* position: relative; */
+    left: 110px;
+    background-image: url(../imges/init_puke.png);
+    background-color: gray;
+}
+.pic3{
+    /* position: relative; */
+    left: 140px;
+    background-image: url(../imges/init_puke.png);
+    background-color: yellow;
+}
+.result{
+    width: 200px;
+    height: 310px;
+    float: left;
+    margin-left: 5px;
+    margin-right: 5px;
+    background-color: rgb(204, 181, 181);
+    font-family: fantasy;
+    font-weight: bold;
+    font-size: 0.9em;
+    font-style: italic;
+}
+.player2{
+    width: 320px;
+    height: 310px;
+   /* margin-left: 200px; */
+   margin-right: 50px;
+   background-color: rgb(176, 202, 26); 
+    float: left;
+}
+.pukeArea2{
+    position: relative;
+    width: 100%;
+    height: 80%;
+    /* margin: auto ; */
+    /* border: 1px solid black; */
+    /* overflow: scroll; */
+}
+.pukeArea2 div{
+    /* background-color:rgb(90, 9, 90); */
+    position: absolute;
+    top: 7px;
+}
+.pukeArea2 img{
+    width: 120px;
+    height: 180px;
+    background-image: url(../imges/init_puke.png);
+}
+.pic4{
+    left: 80px;
+    background-color: red;
+}
+.pic5{
+    /* position: relative; */
+    left: 110px;
+    background-color: gray;
+}
+.pic6{
+    /* position: relative; */
+    left: 140px;
+    background-color: yellow;
+}
+/* .fun{
+    margin:100px auto 0px;
+   width: 180px;
+   height: 50px;
+   
+   background-color: rgb(218, 169, 63); 
+    
+   
+   
+} */
+        
+ 

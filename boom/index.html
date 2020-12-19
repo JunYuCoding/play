@@ -1,0 +1,69 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>欢乐炸金花</title>
+    <link rel="stylesheet" href="./css/init.css">
+    <link rel="stylesheet" href="./css/button.css">
+    <script src="./js/app.js"></script>
+    <script src="./js/stake.js"></script>
+    <script src="./js/start.js"></script>
+</head>
+<body>
+    <div id="main" class="container">
+        <div class="top"></div>
+        <div class="stake" id="stake"></div>
+        <div class="start"><button class="button_style" id="start" onclick="start()"> 开始</button></div>
+        <div class="person1" id="person1">   </div>
+        <div class="player1">
+            <div class="buttonArea">
+                <div ><button class="button_style" id="b1" onclick="look_puke(1)">看牌</button></div>
+                <div ><button class="button_style" id="" onclick="combat()">battle</button></div>
+                <div ><button class="button_style" id="" onclick="out(1)">弃牌</button></div>
+                <div ><button class="button_style" id="" onclick="add_stake(1,10)">¥10</button></div>
+                <div ><button class="button_style" id="" onclick="add_stake(1,20)">¥20</button></div>
+                <div ><button class="button_style" id="" onclick="add_stake(1,30)">¥30</button></div>
+            </div>
+            <div class="pukeArea1" id="">
+                <div class="pic1"><img src=" " alt="" id="pic1" ></div>    
+                <div class="pic2"><img src=" " alt="" id="pic2" ></div>    
+                <div class="pic3"><img src=" " alt="" id="pic3" ></div>    
+            </div>
+            <div class="stakeArea" id="stake1">
+
+            </div>
+        </div>
+        <div class="result" id="res"> 欢迎来到欢乐炸金花😎😎😎 </div>
+
+        <div class="player2">
+            <div class="buttonArea">
+                <div ><button class="button_style" id="b2" onclick="look_puke(2)">看牌</button></div>
+                <div ><button class="button_style" id="" onclick="combat()">battle</button></div>
+                <div ><button class="button_style" id="" onclick="out(2)">弃牌</button></div>
+                <div ><button class="button_style" id="" onclick="add_stake(2,10)">¥10</button></div>
+                <div ><button class="button_style" id="" onclick="add_stake(2,20)">¥20</button></div>
+                <div ><button class="button_style" id="" onclick="add_stake(2,30)">¥30</button></div>
+            </div>
+            <div class="pukeArea2">
+                <div class="pic4"><img src=" " alt="" id="pic4" ></div>    
+                <div class="pic5"><img src=" " alt="" id="pic5" ></div>    
+                <div class="pic6"><img src=" " alt="" id="pic6" ></div>   
+            </div>
+            <div class="stakeArea" id="stake2"> </div>
+        </div>
+
+        <div class="person2" id="person2">   </div>
+
+        <div class="fun">
+            <!-- 规则：先点开始，再逐一看牌。 -->
+            <!-- <div><button class="button_style" onclick="start()"> 开始</button></div>
+             -->
+            <!-- <div><button class="button_style" id="" onclick="changeStyle()">更换风格</button></div> -->
+            <!-- <div><button class="button_style" id="" onclick="changeSeat()">更换座位</button></div> -->
+            
+            
+        </div>
+    </div>
+   
+</body>
+</html>
