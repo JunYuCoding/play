@@ -14,10 +14,11 @@
     <div id="main" class="container">
         <div class="top"></div>
         <div class="stake" id="stake"></div>
+        <div class="rule"> 规则：先点开始！本游戏采用回合制<br><b>请勿利用BUG刷钱！</b><br>豹子 > 顺金 > 金花 > 顺子 > 对子 > 单张 </div>
         <div class="start"><button class="button_style" id="start" onclick="start()"> 开始</button></div>
         <div class="person1" id="person1">   </div>
         <div class="player1">
-            <div class="buttonArea">
+            <div class="buttonArea" id="buttonArea1">
                 <div ><button class="button_style" id="b1" onclick="look_puke(1)">看牌</button></div>
                 <div ><button class="button_style" id="battle1" onclick="combat()">battle</button></div>
                 <div ><button class="button_style" id="giveup1" onclick="out(1)">弃牌</button></div>
@@ -37,7 +38,7 @@
         <div class="result" id="res"> 欢迎来到欢乐炸金花😎😎😎 </div>
 
         <div class="player2">
-            <div class="buttonArea">
+            <div class="buttonArea" id="buttonArea2">
                 <div ><button class="button_style" id="b2" onclick="look_puke(2)">看牌</button></div>
                 <div ><button class="button_style" id="battle2" onclick="combat()">battle</button></div>
                 <div ><button class="button_style" id="giveup2" onclick="out(2)">弃牌</button></div>
