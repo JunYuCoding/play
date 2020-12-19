@@ -3,18 +3,121 @@ var i =0;
 function log(){
     return Id$("res").innerHTML;
 }
+function visibleAll(){
+    Id$("b1").style.visibility = "visible";//按钮显示
+    Id$("b2").style.visibility = "visible";
+    // Id$("start").style.display = "none";
+    Id$("start").style.visibility = "hidden";
+    Id$("battle1").style.visibility="visible";
+    Id$("battle2").style.visibility="visible";
+    Id$("giveup1").style.visibility = "visible";
+    Id$("giveup2").style.visibility = "visible";
+
+}
 function start(){       //开始发牌,每人3张背面牌
     init_stake();
     loading_puke();
     player_init();
     console.log("发牌"+ ++i +"次");
-    
-    Id$("b1").style.display = "block";//按钮显示
-    Id$("b2").style.display = "block";
-    // Id$("start").style.display = "none";
-    Id$("start").style.visibility = "hidden";
+    visibleAll();
+    // Id$("b1").style.display = "block";//按钮显示
+    // Id$("b2").style.display = "block";
+    // // Id$("start").style.display = "none";
+    // Id$("start").style.visibility = "hidden";
+    // Id$("battle1").style.visibility="visible";
+    // Id$("battle2").style.visibility="visible";
     //log
     Id$("res").innerHTML = log()+"<br>"+getTime()+":对局已经开始..."; 
+}
+
+function getnNoRepeatElem(str){//获得含三个元素的数组中没重复（单独）的元素
+    
+    if(str[0]==str[1])
+    return str[2];
+    else
+    return str[0];
+    
+    
+}
+function combat(){
+    console.log(judgeType(1));
+    console.log(judgeType(2));
+    if(judgeType(1) > judgeType(2)){
+        Id$("res").innerHTML = log()+"<br>"+getTime()+":玩家一胜利！游戏结束"; 
+        winner(1);
+        Id$("start").style.visibility = "visible";
+    }
+    else if (judgeType(1) < judgeType(2)){
+        Id$("res").innerHTML = log()+"<br>"+getTime()+":玩家二胜利！游戏结束"; 
+        winner(2);
+        Id$("start").style.visibility = "visible";
+    }
+    else
+    {   
+        if(judgeType(1)==2 &&judgeType(2)==2){  //都是对子的时候
+            if(digitalArr[1][1]>digitalArr[2][1]){
+                Id$("res").innerHTML = log()+"<br>"+getTime()+":玩家一胜利！游戏结束"; 
+                winner(1);
+                Id$("start").style.visibility = "visible";
+            }
+            else if(digitalArr[1][1]<digitalArr[2][1]){
+                Id$("res").innerHTML = log()+"<br>"+getTime()+":玩家二胜利！游戏结束"; 
+                winner(2);
+                Id$("start").style.visibility = "visible";
+            }
+            else{   //中间牌相等的情况
+                if(getnNoRepeatElem(digitalArr[1])>getnNoRepeatElem(digitalArr[2])){
+                    Id$("res").innerHTML = log()+"<br>"+getTime()+":玩家一胜利！游戏结束"; 
+                    winner(1);
+                    Id$("start").style.visibility = "visible";
+                }
+                else if (getnNoRepeatElem(digitalArr[1])<getnNoRepeatElem(digitalArr[2])){
+                    Id$("res").innerHTML = log()+"<br>"+getTime()+":玩家二胜利！游戏结束"; 
+                    winner(2);
+                    Id$("start").style.visibility = "visible";
+                }
+                else {
+                    Id$("res").innerHTML = log()+"<br>"+getTime()+":平局！难得一见！"; //返回money未处理
+                    Id$("start").style.visibility = "visible";
+                }
+            }
+        }
+        else//散牌
+        {
+            for(var i = 0;i<3;i++){
+                if(digitalArr[1][i]>digitalArr[2][i]){
+                    Id$("res").innerHTML = log()+"<br>"+getTime()+":玩家一胜利！游戏结束"; 
+                    winner(1);
+                    Id$("start").style.visibility = "visible";
+                    break;
+                }
+                else if(digitalArr[1][i]==digitalArr[2][i]){
+                    continue;
+                }
+                else{
+                    Id$("res").innerHTML = log()+"<br>"+getTime()+":玩家二胜利！游戏结束"; 
+                    winner(2);
+                    Id$("start").style.visibility = "visible";
+                    break;
+                }
+            }
+        }
+        
+        
+    }
+    Id$("battle1").style.visibility="hidden";
+    Id$("battle2").style.visibility="hidden";
+    
+}
+
+
+
+function look_puke(player){
+    for(var i=1;i<=3;i++){
+        // console.log(Id$("img"+(i+3*(player-1))));
+        Id$("pic"+(i+3*(player-1))).src = "./imges/pukeImage/" + puke[player][i-1];
+    }
+    Id$("b"+player).style.visibility = "hidden";
 }
 
 function player_init(){    
@@ -96,92 +199,3 @@ function judgeType(player){   //判断player这副牌是什么类型
     }
     return type;
 }
-function getnNoRepeatElem(str){//获得含三个元素的数组中没重复（单独）的元素
-    
-        if(str[0]==str[1])
-            return str[2];
-        else
-            return str[0];
-    
-   
-}
-function combat(){
-    console.log(judgeType(1));
-    console.log(judgeType(2));
-    if(judgeType(1) > judgeType(2)){
-        Id$("res").innerHTML = log()+"<br>"+getTime()+":玩家一胜利！游戏结束"; 
-        winner(1);
-        Id$("start").style.visibility = "visible";
-    }
-    else if (judgeType(1) < judgeType(2)){
-        Id$("res").innerHTML = log()+"<br>"+getTime()+":玩家二胜利！游戏结束"; 
-        winner(2);
-        Id$("start").style.visibility = "visible";
-    }
-    else
-    {   
-        if(judgeType(1)==2 &&judgeType(2)==2){  //都是对子的时候
-            if(digitalArr[1][1]>digitalArr[2][1]){
-                Id$("res").innerHTML = log()+"<br>"+getTime()+":玩家一胜利！游戏结束"; 
-                winner(1);
-                Id$("start").style.visibility = "visible";
-            }
-            else if(digitalArr[1][1]<digitalArr[2][1]){
-                Id$("res").innerHTML = log()+"<br>"+getTime()+":玩家二胜利！游戏结束"; 
-                winner(2);
-                Id$("start").style.visibility = "visible";
-            }
-            else{   //中间牌相等的情况
-                if(getnNoRepeatElem(digitalArr[1])>getnNoRepeatElem(digitalArr[2])){
-                    Id$("res").innerHTML = log()+"<br>"+getTime()+":玩家一胜利！游戏结束"; 
-                    winner(1);
-                    Id$("start").style.visibility = "visible";
-                }
-                else if (getnNoRepeatElem(digitalArr[1])<getnNoRepeatElem(digitalArr[2])){
-                    Id$("res").innerHTML = log()+"<br>"+getTime()+":玩家二胜利！游戏结束"; 
-                    winner(2);
-                    Id$("start").style.visibility = "visible";
-                }
-                else {
-                    Id$("res").innerHTML = log()+"<br>"+getTime()+":平局！难得一见！"; //返回money未处理
-                    Id$("start").style.visibility = "visible";
-                }
-            }
-        }
-        else//散牌
-        {
-            for(var i = 0;i<3;i++){
-                if(digitalArr[1][i]>digitalArr[2][i]){
-                    Id$("res").innerHTML = log()+"<br>"+getTime()+":玩家一胜利！游戏结束"; 
-                    winner(1);
-                    Id$("start").style.visibility = "visible";
-                    break;
-                }
-                else if(digitalArr[1][i]==digitalArr[2][i]){
-                    continue;
-                }
-                else{
-                    Id$("res").innerHTML = log()+"<br>"+getTime()+":玩家二胜利！游戏结束"; 
-                    winner(2);
-                    Id$("start").style.visibility = "visible";
-                    break;
-                }
-            }
-        }
-        
-        
-    }
-
-       
-}
-
-
-
-function look_puke(player){
-    for(var i=1;i<=3;i++){
-        // console.log(Id$("img"+(i+3*(player-1))));
-        Id$("pic"+(i+3*(player-1))).src = "./imges/pukeImage/" + puke[player][i-1];
-    }
-    Id$("b"+player).style.display = "none";
-}
-
