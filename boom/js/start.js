@@ -1,43 +1,58 @@
 
 var i =0;
+function init_log(){
+    Id$("res").innerHTML = "欢迎来到欢乐炸金花😎😎😎";
+}
 function log(){
     return Id$("res").innerHTML;
 }
-function visibleAll(){
-    Id$("b1").style.visibility = "visible";//按钮显示
-    Id$("b2").style.visibility = "visible";
+function showAllBtn(){  //点击开始后执行的函数
+    Id$("start").style.visibility = "hidden";       //开始按钮隐藏
+    Id$("b1").style.visibility = "visible";         //玩家一显示 看牌按钮
+    Id$("battle1").style.visibility="hidden";       //玩家一battle按钮不显示 ,玩家二第一次操作完可用
+    Id$("giveup1").style.visibility = "visible";    //玩家一弃牌按钮
+   
+    // Id$("b2").style.visibility = "visible";
     // Id$("start").style.display = "none";
-    Id$("start").style.visibility = "hidden";
-    Id$("battle1").style.visibility="visible";
-    Id$("battle2").style.visibility="visible";
-    Id$("giveup1").style.visibility = "visible";
-    Id$("giveup2").style.visibility = "visible";
+    // Id$("battle2").style.visibility="visible";
+    // Id$("giveup2").style.visibility = "visible";
+}
 
+function showPlayerBtn(player){ // 玩家一操作. 值为2时候玩家二操作.
+    if(player==1){
+        Id$("buttonArea1").style.visibility = "visible"; //初始玩家一按钮面板可见
+        Id$("buttonArea2").style.visibility = "hidden"; //玩家二隐藏。
+    }
+    else{
+        Id$("buttonArea2").style.visibility = "visible"; 
+        Id$("buttonArea1").style.visibility = "hidden"; 
+    }
+    return;
 }
 function start(){       //开始发牌,每人3张背面牌
+    init_log();
     init_stake();
     loading_puke();
     player_init();
     console.log("发牌"+ ++i +"次");
-    visibleAll();
+    showAllBtn();
+    showPlayerBtn(1);
     // Id$("b1").style.display = "block";//按钮显示
     // Id$("b2").style.display = "block";
     // // Id$("start").style.display = "none";
     // Id$("start").style.visibility = "hidden";
     // Id$("battle1").style.visibility="visible";
     // Id$("battle2").style.visibility="visible";
-    //log
+    
     Id$("res").innerHTML = log()+"<br>"+getTime()+":对局已经开始..."; 
+    Id$("res").innerHTML = log()+"<br>"+getTime()+":现在是玩家一回合"; 
 }
 
 function getnNoRepeatElem(str){//获得含三个元素的数组中没重复（单独）的元素
-    
     if(str[0]==str[1])
     return str[2];
     else
     return str[0];
-    
-    
 }
 function combat(){
     console.log(judgeType(1));
@@ -45,12 +60,10 @@ function combat(){
     if(judgeType(1) > judgeType(2)){
         Id$("res").innerHTML = log()+"<br>"+getTime()+":玩家一胜利！游戏结束"; 
         winner(1);
-        Id$("start").style.visibility = "visible";
     }
     else if (judgeType(1) < judgeType(2)){
         Id$("res").innerHTML = log()+"<br>"+getTime()+":玩家二胜利！游戏结束"; 
         winner(2);
-        Id$("start").style.visibility = "visible";
     }
     else
     {   
@@ -58,27 +71,22 @@ function combat(){
             if(digitalArr[1][1]>digitalArr[2][1]){
                 Id$("res").innerHTML = log()+"<br>"+getTime()+":玩家一胜利！游戏结束"; 
                 winner(1);
-                Id$("start").style.visibility = "visible";
             }
             else if(digitalArr[1][1]<digitalArr[2][1]){
                 Id$("res").innerHTML = log()+"<br>"+getTime()+":玩家二胜利！游戏结束"; 
                 winner(2);
-                Id$("start").style.visibility = "visible";
             }
             else{   //中间牌相等的情况
                 if(getnNoRepeatElem(digitalArr[1])>getnNoRepeatElem(digitalArr[2])){
                     Id$("res").innerHTML = log()+"<br>"+getTime()+":玩家一胜利！游戏结束"; 
                     winner(1);
-                    Id$("start").style.visibility = "visible";
                 }
                 else if (getnNoRepeatElem(digitalArr[1])<getnNoRepeatElem(digitalArr[2])){
                     Id$("res").innerHTML = log()+"<br>"+getTime()+":玩家二胜利！游戏结束"; 
                     winner(2);
-                    Id$("start").style.visibility = "visible";
                 }
                 else {
                     Id$("res").innerHTML = log()+"<br>"+getTime()+":平局！难得一见！"; //返回money未处理
-                    Id$("start").style.visibility = "visible";
                 }
             }
         }
@@ -88,7 +96,6 @@ function combat(){
                 if(digitalArr[1][i]>digitalArr[2][i]){
                     Id$("res").innerHTML = log()+"<br>"+getTime()+":玩家一胜利！游戏结束"; 
                     winner(1);
-                    Id$("start").style.visibility = "visible";
                     break;
                 }
                 else if(digitalArr[1][i]==digitalArr[2][i]){
@@ -97,7 +104,6 @@ function combat(){
                 else{
                     Id$("res").innerHTML = log()+"<br>"+getTime()+":玩家二胜利！游戏结束"; 
                     winner(2);
-                    Id$("start").style.visibility = "visible";
                     break;
                 }
             }

@@ -16,6 +16,17 @@
     height: 100px;
     /* background-color: green; */
 }
+.rule{
+    position: absolute;
+    width: 180px;
+    height: 230px;
+    right:0px;
+    top:0px;
+    border-radius: 5%;
+    background-color: chocolate;
+    font-family: "楷体";
+    font-size: 20px;
+}
 .stake{
     position: relative;
     top: 20px;

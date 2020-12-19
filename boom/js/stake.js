@@ -8,8 +8,8 @@ function init_stake(){        //庄家money初始化,游戏开始时start()
    Id$("stake2").innerHTML = eval(surplse2) -10;
 }
 function init_playerStake(){ //玩家money 初始化 onload()
-    Id$("stake1").innerHTML="1000";  //玩家一 二初始1000  开始之后每人减少10
-    Id$("stake2").innerHTML="1000";  //
+    Id$("stake1").innerHTML="100";  //玩家一 二初始100  开始之后每人减少10
+    Id$("stake2").innerHTML="100";  //
 }
 
 function add_stake(player,money){
@@ -17,23 +17,31 @@ function add_stake(player,money){
     var initMoney = Id$("stake").innerHTML;     //庄家money
 
     if(surplse < money){                //如果money不够，不允许加注
-         alert("请充值");
+         alert("请充值!");
         return;
     }
     Id$("stake").innerHTML = eval(initMoney) + eval(money);//parseInt
     //谁加注，对应减少money
     Id$("stake"+player).innerHTML = eval(surplse) - eval(money);
-    if(player==1)
+    if(player==1){
         Id$("res").innerHTML = log()+"<br>"+getTime()+":玩家一加注￥"+money; 
-    else 
+        Id$("res").innerHTML = log()+"<br>"+getTime()+":现在是玩家二回合"; 
+        showPlayerBtn(2);
+    }
+    else {
         Id$("res").innerHTML = log()+"<br>"+getTime()+":玩家二加注￥"+money; 
+        Id$("res").innerHTML = log()+"<br>"+getTime()+":现在是玩家一回合"; 
+        showPlayerBtn(1);
+        Id$("battle1").style.visibility="visible    ";
+    }
 }
 
 function winner(player){
     var surplse = Id$("stake"+player).innerHTML; //玩家剩余money
     var initMoney = Id$("stake").innerHTML;     //庄家money
     Id$("stake"+player).innerHTML = eval(surplse) + eval(initMoney);
-    //赢了之后 对局结束
+    //赢了之后结算money 对局结束 开始按钮改成可见
+    Id$("start").style.visibility = "visible";
 }
 function out(player){
     if(player==1){
