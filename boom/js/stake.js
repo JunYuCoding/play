@@ -28,6 +28,7 @@ function add_stake(player,money){
     else 
         Id$("res").innerHTML = log()+"<br>"+getTime()+":玩家二加注￥"+money; 
 }
+
 function winner(player){
     var surplse = Id$("stake"+player).innerHTML; //玩家剩余money
     var initMoney = Id$("stake").innerHTML;     //庄家money
@@ -38,13 +39,18 @@ function out(player){
     if(player==1){
         Id$("res").innerHTML = log()+"<br>"+getTime()+":玩家一弃牌，玩家二胜利！游戏结束！"; 
         winner(2);
-        Id$("start").style.visibility = "visible";        
-       
+        Id$("start").style.visibility = "visible";       //开始按钮
+        Id$("giveup1").style.visibility = "hidden";
     }   
     else{
         Id$("res").innerHTML = log()+"<br>"+getTime()+":玩家二弃牌，玩家一胜利！游戏结束！"; 
         winner(1);
         Id$("start").style.visibility = "visible";  
+        Id$("giveup2").style.visibility = "hidden";
     }
+}
+function stakeBtnVisible(player){ //加注按钮可见性。
+    Id$("giveup2").style.visibility = "hidden";
 
 }
+
