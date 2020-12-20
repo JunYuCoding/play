@@ -11,11 +11,15 @@
     <script src="./js/start.js"></script>
 </head>
 <body>
+    <audio src="./music/music_puke.mp3" autoplay loop id="music"></audio>
     <div id="main" class="container">
         <div class="top"></div>
         <div class="stake" id="stake"></div>
         <div class="rule"> 规则：先点开始！本游戏采用回合制<br><b>请勿利用BUG刷钱！</b><br>豹子 > 顺金 > 金花 > 顺子 > 对子 > 单张 </div>
-        <div class="start"><button class="button_style" id="start" onclick="start()"> 开始</button></div>
+        <div class="start"><button class="button_style" id="start" onclick="start()"> 开始</button>
+            <button class="button_style" style="margin-left: 200px;" id="muteBtn" onclick="muteMusic()"> 静音</button>
+            <button class="button_style" style="margin-left: 20px;" id="" onclick="changeMusic()"> 换音乐</button>
+        </div>
         <div class="person1" id="person1">   </div>
         <div class="player1">
             <div class="buttonArea" id="buttonArea1">
