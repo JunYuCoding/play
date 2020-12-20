@@ -55,7 +55,7 @@ function look_puke(player){
     }
     else{
         for(var i=1;i<=3;i++){
-            Id$("pic"+(i+3*(player-1))).src = "./imges/init_puke.png";
+            Id$("pic"+(i+3*(player-1))).src = "./imges/pukeImage/bg.png";
         }
         Id$("b"+player).innerHTML = "看牌";
         is_look = 0;
