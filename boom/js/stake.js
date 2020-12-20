@@ -26,6 +26,7 @@ function add_stake(player,money){
     if(player==1){
         Id$("res").innerHTML = log()+"<br>"+getTime()+":玩家一加注￥"+money; 
         Id$("res").innerHTML = log()+"<br>"+getTime()+":现在是玩家二回合"; 
+        Id$("giveup1").style.visibility="hidden";
         showPlayerBtn(2);
     }
     else {

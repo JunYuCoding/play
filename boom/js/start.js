@@ -55,8 +55,18 @@ function getnNoRepeatElem(str){//获得含三个元素的数组中没重复（�
     return str[0];
 }
 function combat(){
-    console.log(judgeType(1));
-    console.log(judgeType(2));
+    //判断特殊情形，235>TYPE 6
+    if(judgeType(1)==6&&digitalArr[2][0]==5&&digitalArr[2][1]==3&&digitalArr[2][2]==2){
+        Id$("res").innerHTML = log()+"<br>"+getTime()+":玩家二胜利！游戏结束"; 
+        winner(2);
+        return;
+    }
+    else if(judgeType(2)==6&&digitalArr[1][0]==5&&digitalArr[1][1]==3&&digitalArr[1][2]==2){
+        Id$("res").innerHTML = log()+"<br>"+getTime()+":玩家一胜利！游戏结束"; 
+        winner(1);
+        return;
+    }
+    //接下来正常情况
     if(judgeType(1) > judgeType(2)){
         Id$("res").innerHTML = log()+"<br>"+getTime()+":玩家一胜利！游戏结束"; 
         winner(1);
@@ -86,11 +96,12 @@ function combat(){
                     winner(2);
                 }
                 else {
-                    Id$("res").innerHTML = log()+"<br>"+getTime()+":平局！难得一见！"; //返回money未处理
+                    Id$("res").innerHTML = log()+"<br>"+getTime()+":双方一样，玩家一胜利！游戏结束"; 
+                    winner(1);
                 }
             }
         }
-        else//散牌
+        else//散牌比较  A23特殊顺情况已在judgetype函数检验。
         {
             for(var i = 0;i<3;i++){
                 if(digitalArr[1][i]>digitalArr[2][i]){
@@ -108,9 +119,8 @@ function combat(){
                 }
             }
         }
-        
-        
     }
+
     Id$("battle1").style.visibility="hidden";
     Id$("battle2").style.visibility="hidden";
     
@@ -118,18 +128,11 @@ function combat(){
 
 
 
-function look_puke(player){
-    for(var i=1;i<=3;i++){
-        // console.log(Id$("img"+(i+3*(player-1))));
-        Id$("pic"+(i+3*(player-1))).src = "./imges/pukeImage/" + puke[player][i-1];
-    }
-    Id$("b"+player).style.visibility = "hidden";
-}
 
 function player_init(){    
     for(var i=1;i<=6;i++){      //玩家卡牌初始化为背面牌,并且发三张牌存入puke数组
         
-        Id$("pic"+i).src="./imges/pukeImage/bg.jpg";
+        Id$("pic"+i).src="./imges/pukeImage/bg.png";
     }
     for(i=0;i<=2;i++){          
         puke[i]=new Array();        //将玩家手中的扑克牌置为空
@@ -191,9 +194,13 @@ function judgeType(player){   //判断player这副牌是什么类型
     if(typeArr[player][0]==typeArr[player][1]&&typeArr[player][1]==typeArr[player][2]){
         type = 4;   //金花
         flag4 = 1;
-        
     }
     if((digitalArr[player][0]-digitalArr[player][1])==1&&(digitalArr[player][1]-digitalArr[player][2]==1)){
+        type = 3;   //顺子
+        flag3 = 1;
+    }
+     //补充特殊顺子A23
+    if(typeArr[player][0]==14&&typeArr[player][1]==2&&typeArr[player][2]==3){
         type = 3;   //顺子
         flag3 = 1;
     }
