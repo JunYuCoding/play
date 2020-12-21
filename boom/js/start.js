@@ -1,5 +1,3 @@
-
-var i =0;
 function init_log(){
     Id$("res").innerHTML = "欢迎来到欢乐炸金花😎😎😎";
 }
@@ -11,13 +9,14 @@ function showAllBtn(){  //点击开始后执行的函数
     Id$("b1").style.visibility = "visible";         //玩家一显示 看牌按钮
     Id$("battle1").style.visibility="hidden";       //玩家一battle按钮不显示 ,玩家二第一次操作完可用
     Id$("giveup1").style.visibility = "visible";    //玩家一弃牌按钮
-   
-    // Id$("b2").style.visibility = "visible";
-    // Id$("start").style.display = "none";
-    // Id$("battle2").style.visibility="visible";
-    // Id$("giveup2").style.visibility = "visible";
+    //看牌显示
+    Id$("b1").innerHTML = "看牌";
+    Id$("b2").innerHTML = "看牌";
 }
-
+function hiddenAllBtn(){
+    Id$("buttonArea1").style.visibility = "hidden";
+    Id$("buttonArea2").style.visibility = "hidden";
+}
 function showPlayerBtn(player){ // 玩家一操作. 值为2时候玩家二操作.
     if(player==1){
         Id$("buttonArea1").style.visibility = "visible"; //初始玩家一按钮面板可见
@@ -34,16 +33,9 @@ function start(){       //开始发牌,每人3张背面牌
     init_stake();
     loading_puke();
     player_init();
-    console.log("发牌"+ ++i +"次");
     showAllBtn();
     showPlayerBtn(1);
-    // Id$("b1").style.display = "block";//按钮显示
-    // Id$("b2").style.display = "block";
-    // // Id$("start").style.display = "none";
-    // Id$("start").style.visibility = "hidden";
-    // Id$("battle1").style.visibility="visible";
-    // Id$("battle2").style.visibility="visible";
-    
+
     Id$("res").innerHTML = log()+"<br>"+getTime()+":对局已经开始..."; 
     Id$("res").innerHTML = log()+"<br>"+getTime()+":现在是玩家一回合"; 
 }
@@ -54,7 +46,8 @@ function getnNoRepeatElem(str){//获得含三个元素的数组中没重复（�
     else
     return str[0];
 }
-function combat(){
+function combat(obj){
+    battle(obj.id.charAt(6)); //判断是谁选择battle
     //判断特殊情形，235>TYPE 6
     if(judgeType(1)==6&&digitalArr[2][0]==5&&digitalArr[2][1]==3&&digitalArr[2][2]==2){
         Id$("res").innerHTML = log()+"<br>"+getTime()+":玩家二胜利！游戏结束"; 
@@ -125,13 +118,8 @@ function combat(){
     Id$("battle2").style.visibility="hidden";
     
 }
-
-
-
-
 function player_init(){    
     for(var i=1;i<=6;i++){      //玩家卡牌初始化为背面牌,并且发三张牌存入puke数组
-        
         Id$("pic"+i).src="./imges/pukeImage/bg.png";
     }
     for(i=0;i<=2;i++){          
@@ -148,9 +136,6 @@ function player_init(){
         typeArr[1][i] = splitName[0];          
         digitalArr[1][i]   = parseInt( splitName[1].slice(0,2) );  
     } 
-
-    console.log("玩家一扑克牌已分配完成！");
-    
     delete_puke();  //执行 牌库删除三张已使用扑克牌
 
     //玩家二扑克牌
@@ -163,14 +148,12 @@ function player_init(){
         digitalArr[2][i]   = parseInt( splitName[1].slice(0,2) );
     }
     console.log("玩家二扑克牌已分配完成！");
-    console.log(typeArr[1]);
-    console.log(typeArr[2]);
-   
     digitalArr[1]=sortArr(digitalArr[1]);
     digitalArr[2]=sortArr(digitalArr[2]);
-    console.log(digitalArr[1]);
-    console.log(digitalArr[2]);
-    
+    // console.log(typeArr[1]);
+    // console.log(typeArr[2]);
+    // console.log(digitalArr[1]);
+    // console.log(digitalArr[2]);
 }
 function sortArr(arr){
     for(var i = 0,temp;i<3;i++){     //将其转换为    从大到小排好序

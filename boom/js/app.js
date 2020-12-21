@@ -1,10 +1,9 @@
 var pukeName = new Array();     //52张扑克名字
 var indexs = new Array();       //三个随机索引。
 var puke = new Array();         //玩家手中的扑克牌[][]
-var splitName = new Array();
-var typeArr = new Array();
-var digitalArr = new Array();
- 
+var splitName = new Array();    //临时数组
+var typeArr = new Array();      //卡牌类型数组
+var digitalArr = new Array();   //卡牌数字数组
 var music_open =1
 function muteMusic(){
     if (music_open ==1)
@@ -27,7 +26,6 @@ function changeMusic(){
     }
     else{
         Id$("music").src="./music/music_puke.mp3";
-        music_change=1;
     }
 }
 function threeNumber(max){ 
@@ -94,13 +92,7 @@ function delete_puke(){
 function Id$(id){
     return document.getElementById(id);
 }
-// function changeStyle(){
-//     Id$("main").style.background = "grey";
-// }
-// function changeSeat(){
-//     Id$("person1").style.backgroundImage = "url("+"../imges/player2.png"+")";
-//     Id$("person2").style.backgroundImage = "url("+"../imges/player1.png"+")";
-// }
+
 function getTime(){
     var dNow = new Date();
 	var dHours = dNow.getHours();
@@ -109,7 +101,6 @@ function getTime(){
     var strTime = dHours;
     strTime += ((dMinutes<10) ? ":0" : ":") + dMinutes;
     strTime += ((dSeconds<10) ? ":0" : ":") + dSeconds;
-    console.log(strTime);
     return strTime;
 }
 window.onload = function(){

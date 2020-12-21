@@ -5,8 +5,11 @@
 
 .container{
     position: relative;
-    width: 100%;
+    font-size: 80%; /* 一个字大小16个像素 16px*120*0.8 */
+    width: 120em;
     height: 580px;
+    /* background-image: url("../imges/bkground.jpg"); */
+    background-size: cover;
     background-color: rgb(135, 166, 222);
 }
 .top{
@@ -18,12 +21,12 @@
 }
 .rule{
     position: absolute;
-    width: 180px;
-    height: 230px;
-    right:0px;
+    width: 400px;
+    height: 180px;
+    left:0px;
     top:0px;
-    border-radius: 5%;
-    background-color: chocolate;
+    margin-top:20px;
+    margin-left: 100px;
     font-family: "楷体";
     font-size: 20px;
 }
@@ -42,7 +45,7 @@
     font-style: normal;
 }
 .start{
-    margin-left: 45%;
+    left:0px;
 }
 .buttonArea{
     margin:10px auto 5px;
@@ -55,9 +58,9 @@
     float: left;
 }
 .stakeArea{
-    margin:0px auto;
+    margin:-40px auto;
     height: 10px;
-   
+   font-size: 26px;
     
 }
 .person1{
@@ -101,23 +104,24 @@
 .pukeArea1 img{
     
     width: 120px;
-    height: 180px;
+    height: 190px;
+    background-image: url(../imges/pukeImage/bg.png);
 }
 .pic1{
     left: 80px;
-    background-image: url(../imges/init_puke.png);
+    /* background-image: url(../imges/init_puke.png); */
     background-color: red;
 }
 .pic2{
     /* position: relative; */
     left: 110px;
-    background-image: url(../imges/init_puke.png);
+    /* background-image: url(../imges/init_puke.png); */
     background-color: gray;
 }
 .pic3{
     /* position: relative; */
     left: 140px;
-    background-image: url(../imges/init_puke.png);
+    /* background-image: url(../imges/init_puke.png); */
     background-color: yellow;
 }
 .result{
@@ -127,10 +131,11 @@
     margin-left: 5px;
     margin-right: 5px;
     background-color: rgb(204, 181, 181);
-    font-family: fantasy;
+    /* font-family: fantasy; */
     font-weight: bold;
     font-size: 0.9em;
-    font-style: italic;
+    /* font-style: italic; */
+    overflow:auto;
 }
 .player2{
     width: 320px;
@@ -155,8 +160,8 @@
 }
 .pukeArea2 img{
     width: 120px;
-    height: 180px;
-    background-image: url(../imges/init_puke.png);
+    height: 190px;
+    background-image: url(../imges/pukeImage/bg.png);
 }
 .pic4{
     left: 80px;
@@ -172,15 +177,6 @@
     left: 140px;
     background-color: yellow;
 }
-/* .fun{
-    margin:100px auto 0px;
-   width: 180px;
-   height: 50px;
-   
-   background-color: rgb(218, 169, 63); 
-    
-   
-   
-} */
+
         
  
