@@ -143,11 +143,10 @@ function player_init(){
     for(var i=0;i<3;i++){
         puke[2][i] = pukeName[indexs[i]];
         splitName =puke[2][i].split("_");    //将玩家2 手牌拆分 前缀 牌的类型和后缀数字
-        console.log(indexs);
         typeArr[2][i] = splitName[0];          
         digitalArr[2][i]   = parseInt( splitName[1].slice(0,2) );
     }
-    console.log("玩家二扑克牌已分配完成！");
+  
     digitalArr[1]=sortArr(digitalArr[1]);
     digitalArr[2]=sortArr(digitalArr[2]);
     // console.log(typeArr[1]);

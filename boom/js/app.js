@@ -74,7 +74,7 @@ function loading_puke(){
         pukeName.push("spade_"+ (i >= 10 ? i: ("0"+i)) +".jpg");
         pukeName.push("diamond_"+ (i >= 10 ? i: ("0"+i)) +".jpg");
         } 
-    console.log("加载扑克牌完成！");
+   
 }
 
 function delete_puke(){

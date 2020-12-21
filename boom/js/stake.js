@@ -44,6 +44,7 @@ function add_stake(player,money){
 function battle(player){  //battle 对应扣钱！
     var surplse = Id$("stake"+player).innerHTML; //玩家剩余money；
     Id$("stake"+player).innerHTML = eval(surplse) - eval(currentMoney);
+    Id$("stake").innerHTML = eval(Id$("stake").innerHTML) + eval(currentMoney);
 }
 
 function winner(player){
