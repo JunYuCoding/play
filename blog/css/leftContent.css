@@ -1,0 +1,23 @@
+
+.content-box{
+	padding: 20px 25px 0px;
+	background-color: lightblue;
+	height: 220px;
+	border-radius: 12px;
+	margin: 30px 30px 30px 0;   /*右边30px与个人区隔开*/
+	border: 1px solid transparent;
+	box-shadow: 3px 3px 3px 0px rgba(0,0,0,0.2);  
+}
+.passage{
+	text-align: left;
+	
+}
+.passage-vice{
+	margin: 5px 0px 10px 10px;
+}
+.passage-buttom{
+	text-align: left;
+	margin-top: 5px;
+	width: 100%;
+	
+}

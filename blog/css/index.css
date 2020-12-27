@@ -1,0 +1,81 @@
+
+body{
+	/* cursor: url(https://cdn.jsdelivr.net/gh/TRHX/CDN-for-itrhx.com@2.1.6/images/mouse.cur),auto; */
+	background-color: #EFEFEF;
+}
+a{
+	text-decoration: none;
+	
+}
+.icon{
+	width: 25px;
+	height: 25px;
+	margin-bottom: 2px;
+	margin-left: 20px;
+}
+.navbar-default{
+	background-color: lightcyan;
+}
+.navbar {
+	margin-bottom: 0px;
+}
+
+.personArea{
+	border-radius: 12px;
+	box-shadow: 3px 3px 3px 0px rgba(0,0,0,0.2);  
+	
+}
+.content-box:hover,.personArea:hover,.labelArea:hover,.social:hover{
+	box-shadow: 8px 8px 6px 0px rgba(0,0,0,0.4);
+	transition-property: all;
+	transition-duration: 0.3s;
+	transition-timing-function: linear;
+	-webkit-transition-timing-function: linear; /* Safari 和 Chrome */
+}
+
+.avater{
+	padding: 10px;
+	margin-top: 30px;
+	border-radius: 12px;
+	background-image: url(../images/bg2.jpg);
+}
+.jumbotron{
+	padding: 0px;
+	
+}
+.row{
+	/* background: lightpink; */
+	height: 100px;
+}
+.img-circle{
+	width: 100px;
+	height: 100px;
+	margin-top: 10px;
+}
+.social{
+	margin: 0 45px;
+}
+ul,ul li{
+	list-style-type: none;
+}
+.social-icon{
+	   font-size: 1.6em;
+	    width: 40px;
+	    height: 40px;
+	    margin: 6px;
+		float: left;
+}
+.labelArea{
+	clear: both;
+	box-shadow: 2px 2px 2px 0px rgba(0,0,0,0.2);  
+	border-radius: 12px;
+	margin: 15px; 
+	border-top: 2px solid lightgray;
+	border-bottom: 2px solid lightgray;
+}
+a:hover{
+	background-color: lightblue;
+}
+.footer{
+	text-align: center;
+}

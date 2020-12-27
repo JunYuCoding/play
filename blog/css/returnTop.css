@@ -1,0 +1,14 @@
+.top{
+    width: 50px;
+    height: 30px;
+    position: fixed;
+    right: 30px;
+    bottom: 100px;
+}
+.top p{
+    color: white;
+}
+.top p,img{
+    width: 100%;
+    text-align: center;
+}
