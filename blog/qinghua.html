@@ -26,15 +26,15 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-8 container leftContent" >
+					<div id="vueBox"  class="content-box" >
+						<p><span class="label label-success" style="font-size: 16px;">{{txt}} </span> </p>
+					</div>
 					<div class="content-box">
 						<script src="js/passage00.js" type="text/javascript" charset="utf-8"></script>
 					</div>
 					
 					<div  class="content-box">
 						<script src="js/passage01.js" type="text/javascript" charset="utf-8"></script>
-					</div>
-					<div  class="content-box">
-						
 					</div>
 					
 					<nav aria-label="...">
@@ -87,6 +87,26 @@
 				},
 			}
 		});
+		var txt = new Vue({
+			el:"#vueBox",
+			data:{
+				txt:"",
+			},
+			mounted:function(){
+				this.getQinghua();
+			},
+			methods:{
+				getQinghua:function(){
+					var temp = this;
+					axios.get("https://v1.alapi.cn/api/qinghua").then(
+					function (response) {
+					temp.txt = response.data.data.content ;
+					},function (err) {
+						thmp.joke ="好像出问题了呢";
+					})
+				},
+			}
+		})
 	</script>
 </body>
 </html>

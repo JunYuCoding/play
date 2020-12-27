@@ -1,0 +1,57 @@
+
+.personArea{
+	margin: 10px;
+	border-radius: 12px;
+	box-shadow: 3px 3px 3px 0px rgba(0,0,0,0.2);  
+	
+}
+.content-box:hover,.personArea:hover,.labelArea:hover,.social:hover{
+	box-shadow: 8px 8px 6px 0px rgba(0,0,0,0.4);
+	transition-property: all;
+	transition-duration: 0.3s;
+	transition-timing-function: linear;
+	-webkit-transition-timing-function: linear; /* Safari 和 Chrome */
+}
+
+.avater{
+	padding: 10px;
+	margin-top: 30px;
+	border-radius: 12px;
+	background-image: url(../images/bg2.jpg);
+}
+.img-circle{
+	width: 100px;
+	height: 100px;
+	margin-top: 10px;
+}
+.social{
+	margin: 0 45px;
+}
+#sheet1 ul,#sheet1 ul li{
+	padding: 0;
+	list-style-type: none;
+	font-size: 20px;
+	text-align: center;
+}
+#sheet1 ul li:hover{
+	background-color: lightcoral;
+	border-radius: 10px;
+	transform: all 3s linear;
+	height: 30px;
+}
+.social-icon{
+		font-size: 1.6em;
+	    width: 40px;
+	    height: 40px;
+	    margin: 4px;
+		float: left;
+}
+.labelArea{
+	clear: both;
+	box-shadow: 2px 2px 2px 0px rgba(0,0,0,0.2);  
+	border-radius: 12px;
+	margin: 10px; 
+	padding: 5px;
+	border-top: 2px solid lightgray;
+	border-bottom: 2px solid lightgray;
+}
