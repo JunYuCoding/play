@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/index.css"/>
+	</head>
+	<body >
+		<div class="container">
+			<h3>五子棋</h3>	
+			<canvas id="myCanvas" width="600" height="600" onclick="getPos(event)"></canvas>
+			<script src="js/drawChess.js" type="text/javascript" charset="utf-8"></script>
+			<script src="js/judgeWinner.js" type="text/javascript" charset="utf-8"></script>
+			<script src="js/main.js" type="text/javascript" charset="utf-8"></script>
+			<div class="btn">
+				<button type="button" id="start">开始</button>
+				<button type="button">人机对战</button>
+				<button type="button">人人对战</button>
+			</div>
+		</div>
+	</body>
+</html>
