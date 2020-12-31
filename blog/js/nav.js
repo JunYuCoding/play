@@ -21,6 +21,8 @@ document.write('	                                <li><a href="#">一只老鼠</a
 document.write('	                                <li role="separator" class="divider"></li>																')
 document.write('	                                <li><a href="#">欢乐炸金花</a></li>																')
 document.write('	                                <li role="separator" class="divider"></li>																')
+document.write('	                                <li><a href="chess.html">五子棋</a></li>																')
+document.write('	                                <li role="separator" class="divider"></li>																')
 document.write('	                                <li><a href="qinghua.html">土味情话</a></li>																')
 document.write('	                            </ul>																')
 document.write('	                    </li>																')

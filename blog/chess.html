@@ -16,6 +16,31 @@
     <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/changeTitle.js" type="text/javascript" charset="utf-8"></script>
+	<style type="text/css">
+		.container{
+			text-align: center;
+		}
+		#myCanvas{
+			padding-top: 10px;
+			background-color: burlywood;
+			border-radius: 30px;
+			/* cursor: url(./img/whiie.png),auto; */
+			/* cursor: url(https://cdn.jsdelivr.net/gh/TRHX/CDN-for-itrhx.com@2.1.6/images/mouse.cur),auto; */
+		}
+		#info{
+			position: absolute;
+			top:40px;
+			left:230px;
+			width: 300px;
+			text-align: center;
+			font-size: 3em;	
+		}
+	</style>
+	<script type="text/javascript">
+		function start(){
+			alert("直接开始把，这里啥都没写");
+		}
+	</script>
 </head>
 <body>
 	<div id="nav">
@@ -26,28 +51,23 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-8 container leftContent" >
-					<div class="content-box">
-						<script src="js/passage00.js" type="text/javascript" charset="utf-8"></script>
+					<div id="info">
+						<div id="btn">
+							<!-- <button type="button"  class="btn btn-primary  ">开始</button> -->
+							<button type="button" onclick="start()" class="btn btn-primary  ">人人对战(默认)</button>
+							<button type="button" class="btn btn-danger  ">人机对战(开发中)</button>
+						</div>
+						<div id="showInfo">
+						</div>
+					</div>
+					<div class="chessBox">
+						<h3>五子棋</h3>	
+						<canvas id="myCanvas" width="600" height="600" onclick="getPos(event)"></canvas>
+						<script src="js/drawChess.js" type="text/javascript" charset="utf-8"></script>
+						<script src="js/judgeWinner.js" type="text/javascript" charset="utf-8"></script>
+						<script src="js/chessMain.js" type="text/javascript" charset="utf-8"></script>
 					</div>
 					
-					<div  class="content-box">
-						<script src="js/passage01.js" type="text/javascript" charset="utf-8"></script>
-					</div>
-					<div  class="content-box">
-						
-					</div>
-					<div  class="content-box">
-						
-					</div>
-					
-					
-					
-					<nav aria-label="...">
-					  <ul class="pager">
-					    <li class="previous disabled"><a href="#"><span aria-hidden="true">&larr;</span> 上一页</a></li>
-					    <li class="next"><a href="#">下一页 <span aria-hidden="true">&rarr;</span></a></li>
-					  </ul>
-					</nav>
 				</div>
 				<div class="col-md-4 container "!-- col-md-offset-1右偏移类-->
 					<script src="js/rightInfo.js" type="text/javascript" charset="utf-8"></script>
