@@ -9,23 +9,107 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css"/>
 	<link rel="stylesheet" type="text/css" href="css/index.css"/>
+	<link rel="stylesheet" type="text/css" href="css/nav.css"/>
 	<link rel="stylesheet" type="text/css" href="css/leftContent.css"/>
 	<link rel="stylesheet" type="text/css" href="css/rightInfo.css"/>
-	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-	<script src="https://unpkg.com/axios/dist/axios.min.js"></script><!-- axios-->
+	<!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
+	<!-- <script src="https://cdn.bootcdn.net/ajax/libs/axios/0.21.0/axios.js"></script> -->
     <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/changeTitle.js" type="text/javascript" charset="utf-8"></script>
+	
 </head>
 <body>
-	<div id="nav">
-    <script src="js/nav.js" type="text/javascript" charset="utf-8"></script>
+    <nav class="navbar navbar-inverse navbar-static-top">
+		<div class="container">														
+			<div class="navbar-header">														
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#top-ul" aria-expanded="false">														
+					<span class="sr-only">Toggle navigation</span>														
+					<span class="icon-bar"></span>														
+					<span class="icon-bar"></span>														
+					<span class="icon-bar"></span>														
+				</button>														
+				<a class="navbar-brand" href="index.html"> JUNU\'S BLOG </a>										
+			</div>														
+			<div class="collapse navbar-collapse" id="top-ul">														
+				<ul class="nav navbar-nav ">														
+					<li class="active"><a href="index.html"><i class="fa fa-rocket" aria-hidden="true"></i>首页 <span class="sr-only">(current)</span></a></li>														
+					<li class="dropdown">														
+							<a href="#" class="dropdown-toggle fa fa-share" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">程序分享 <span class="caret"></span></a>														
+							<ul class="dropdown-menu">														
+								<li><a href="#">三只松鼠</a></li>														
+								<li><a href="#">两只兔子</a></li>														
+								<li><a href="#">一只老鼠</a></li>														
+								<li role="separator" class="divider"></li>														
+								<li><a href="#">欢乐炸金花</a></li>														
+								<li role="separator" class="divider"></li>														
+								<li><a href="chess.html">五子棋</a></li>														
+								<li role="separator" class="divider"></li>														
+								<li><a href="qinghua.html">土味情话</a></li>														
+							
+							</ul>														
+					</li>														
+					<li><a href="#"><i class="fa fa-archive" aria-hidden="true"></i> Achive</a></li>									
+					<li><a href="#"><i class="fa fa-times" aria-hidden="true"></i> 程序人生</a></li>									
+					<li><a href="about.html"><i class="fa fa-superpowers" aria-hidden="true"></i> 关于博主</a></li>														
+				</ul>														
+			</div><!-- /.navbar-collapse -->	
+		</div><!-- /.container-fluid -->	
+    </nav>				
+	<div class="imgInfo">
+		<img src="images/nickName1.jpg" class="header-img" >
+		<div class="detail-info">
+			<div class="detail-info-name">
+				<div>JUNU</div>
+				<div class="detail-info-name-info">我的详情信息 
+					<p>18093126 Huang</p>
+					<p>email:1060737917@qq.com</p>
+				</div>
+			</div>
+			<div class="detail-info-level">VIP8</div>
+			<div class="detail-info-box">
+				<div class="detail-info-box-item">
+					<div>3</div>
+					<div>点赞</div>
+				</div>
+				<div class="detail-info-box-item">
+					<div>99999+</div>
+					<div>获赞</div>
+				</div>
+				<div class="detail-info-box-item">
+					<div>9999110</div>
+					<div>粉丝</div>
+				</div>
+			</div>
+			<div class="detail-info-function">
+				<ul class="detail-info-ul">
+					<li id="menu" ><a href=""><i class="fa fa-coffee"></i>ChooseLanguage</a>
+						<ul id="menu2">
+							<li >中文
+								<ul id="menu3" >
+									<li class="act">简体中文 √</li>
+									<li>繁体中文</li>
+									<li>CHINESE</li>
+								</ul>
+							</li>
+							<li>English</li>
+							<li>CHINESE</li>
+						</ul>
+					</li>
+					<li><a href=""><i class="fa fa-magic"></i>三级菜单</a></li>
+					<li><a href=""><i class="fa fa-university"></i>四级菜单</a></li>
+					<li><a href=""><i class="fa fa-subway"></i>个人中心</a></li>
+					<li><a href=""><i class="fa fa-train"></i>个人中心</a></li>
+				</ul>
+			</div>
+		</div>
 	</div>
+	<!-- nav结束 -->
 	
 	<div id="content" class="jumbotron">
 		<div class="container">
 			<div class="row">
-				<div class="col-md-8 container leftContent" >
+				<div class="col-sm-8 container leftContent" >
 					<div class="content-box">
 						<script src="js/passage00.js" type="text/javascript" charset="utf-8"></script>
 					</div>
@@ -33,6 +117,26 @@
 					<div  class="content-box">
 						<script src="js/passage01.js" type="text/javascript" charset="utf-8"></script>
 					</div>
+					<div  class="content-box">
+						
+						<div class="passage">
+							<small class="fa fa-clock-o">&nbsp;发布于2020-12-27</small>  
+							<h3 class="passage-vice"><a href="#">正在努力测试</a></h3>  
+							<small><i class="fa fa-fire passage-vice" aria-hidden="true"></i>热度99399</small>  
+							<small><i class="fa fa-font passage-vice" aria-hidden="true"></i>字数≈1603字</small>  
+							<small><i class="fa fa-folder-open passage-vice" aria-hidden="true"></i><a href="#">html/CSS3</a></small>  
+							<small><i class="fa fa-book passage-vice" aria-hidden="true"></i>阅读时长≈6分钟</small>  
+							<h4 style=><small>&nbsp;&nbsp;&nbsp;&nbsp;基于Bootstrap,Jquery,CSS3搭建</small></h4>  
+							<button type="button" class="btn btn-primary fa fa-coffee ">&nbsp;阅读全文</button>  
+							<div class="passage-buttom">  
+								<button type="button" class="btn btn-warning fa fa-tags ">&nbsp;Bootstrap</button>	
+								<button type="button" class="btn btn-warning fa fa-tags ">&nbsp;jquery</button>	
+								<button type="button" class="btn btn-warning fa fa-tags ">&nbsp;CSS3</button>	
+							</div>  
+						</div>	  
+						
+					</div>
+					
 					
 					
 					<nav aria-label="...">
@@ -42,15 +146,23 @@
 					  </ul>
 					</nav>
 				</div>
-				<div class="col-md-4 container "!-- col-md-offset-1右偏移类-->
+				<div class="col-sm-4 container "!-- col-sm-offset-1右偏移类-->
 					<script src="js/rightInfo.js" type="text/javascript" charset="utf-8"></script>
 				</div>
+				
 			</div>
 		</div>	
 	</div>
-	<div id="footer" class="footer"  style="display:absoulte;buttom:20px"> <!-- dy你直接在这里加行间样式-->
-		<script src="./js/footer.js" type="text/javascript" charset="utf-8"></script>
-	</div>
+	<!-- 内容结束 -->
+	<!-- footer开始 -->
+	
+	<footer id="footer">
+		<div class="container">
+			<p>Copyright @ 2020-2021 <a href="">JUNU | 理想的生活就是生活的理想</a>· supported by hjy</p>
+			<a href=""><p> 赣ICP备12345678号-4</p></a>
+			<a href=""><p> VUE准frontend | DJANGO预备backend</p></a>
+		</div>
+	</footer>
 	<script type="text/javascript">
 		var app = new Vue({
 			el:"#app",
@@ -61,6 +173,7 @@
 			mounted:function(){
 				this.getJoke();
 				this.getPoetry();
+				this.get1();
 			},
 			methods:{
 				getJoke:function(){
@@ -81,6 +194,22 @@
 					temp.poetry = response.data.data.content ;
 					},function (err) {
 						thmp.poetry ="乘风破浪会有时，直挂云帆济沧海。";
+					})
+				},
+				get1:function(){
+					var temp = this;
+					axios.get("http://127.0.0.1:8000/article_list/?page=1").then(
+					function (response) {
+                        console.log(response.data.list[0]);
+                        console.log(response.data.list[0].fields);
+                        console.log(response.data.list[0].fields.title);
+                        console.log(response.data.list[0].fields.content);
+                        console.log(response.data.list[0].fields.pub_date);
+                        console.log(response.data.list[0].fields.tags);
+//					temp.poetry = response.data.data.content ;
+					},function (err) {
+//						thmp.poetry ="乘风破浪会有时，直挂云帆济沧海。";
+                        console.log(err)
 					})
 				},
 			}
