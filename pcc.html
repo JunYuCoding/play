@@ -3,6 +3,119 @@
 	<head>
 		<meta charset="utf-8">
 		<title>省市县三级联动</title>
+<!-- 	 -->
+		<style type="text/css">
+			 html,body {
+			  font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
+			  padding: 3em 2em;
+			  font-size: 18px;
+			  background: #fff;
+			  color: #009966;
+					background: url(https://blog.dreamwithme.cn/api/get_pic_api.html);
+			}
+			
+			h1,h2 {
+			  font-weight: 300;
+			  margin: 0.4em 0;
+			}
+			h1 { font-size: 3.5em; }
+			h2 { font-size: 2.5em; font-weight: 700; color: #505050; }
+			h3 {
+			  color: #505050;
+			  font-size: 1.5em;
+			}
+			.fw700 {
+			  font-weight: 700;
+			}
+			input {
+			  font-size: 100%;
+			  background: #fff;
+			  border: none;
+			  color: #000;
+			  padding: 12px;
+			  margin: 0 -0.25em 0 0.3em;
+			  border-top-left-radius: 9px;
+			  border-bottom-left-radius: 9px;
+			  box-shadow: 0 0 5px rgba(0,0,0,0.5) inset;
+			}
+			#call {
+			  border-top-right-radius: none;
+			  border-radius: none;
+			}
+			::-webkit-input-placeholder {
+			   color: #222;
+			}
+			
+			:-moz-placeholder { /* Firefox 18- */
+			   color: #222;  
+			}
+			
+			::-moz-placeholder {  /* Firefox 19+ */
+			   color: #222;  
+			}
+			
+			:-ms-input-placeholder {  
+			   color: #222;  
+			}
+			
+			.inline {
+			  display: inline;
+			}
+			
+			.button {
+			  display: inline-block;
+			  background: #009966;
+			  color: #fff;
+			  font-weight: 700;
+			  text-decoration: none;
+			  padding: 0.44em 0.89em 0.39em;
+			  margin: 0 1em 0 0;
+			  border-top-right-radius: 9px;
+			  border-bottom-right-radius: 9px;
+			  border-top-left-radius: 0;
+			  border-bottom-left-radius: 0;
+			  margin-left: 0px;
+			  font-size: 1em;
+			  box-shadow: none;
+			  border: 1px solid rgba(0,0,0,0.1);
+			  border-left: none;
+			}
+			
+			.field-wrapper {
+			  position:relative;
+			  margin-bottom:20px;
+			  display: inline-block;
+			}
+			
+			label {
+			  position:absolute;
+			  bottom:-20px;
+			  left:6px;
+			  font-size:16px;
+			  color:#aaa;
+			  transition: all 0.1s linear;
+			  opacity:0;
+			  font-weight:bold;
+			  display: block;
+			}
+			
+			label.on {
+			  color: #4481C4;
+			}
+			
+			label.show {
+			  bottom: -30px;
+			  opacity: 1;
+			}
+			
+			body {
+				
+			  /* the following line fixes a blink in chrome https://code.google.com/p/chromium/issues/detail?id=108025 */
+			  -webkit-backface-visibility: hidden;
+			} 
+		</style>
+<!-- 		 -->
+		
 		<script type="text/javascript">
 			var xmlHttp;
 			window.onload = function() {
@@ -42,6 +155,7 @@
 		</script>
 	</head>
 	<body>
+		<h1><span class="txt-rotate fw700" data-period=500" data-rotate='["省市县三级联动下拉框"]'></span></h1>
 		<select id="sheng" onchange="sheng(this.value);">
 			<option value="-1">请选择省</option>
 		</select>
@@ -54,3 +168,58 @@
 		<div id="result"></span>
 	</body>
 </html>
+
+		<script>
+			var TxtRotate = function(el, toRotate, period) {
+			  this.toRotate = toRotate;
+			  this.el = el;
+			  this.loopNum = 0;
+			  this.period = parseInt(period, 10) || 2000;
+			  this.txt = '';
+			  this.tick();
+			  this.isDeleting = false;
+			};
+			
+			TxtRotate.prototype.tick = function() {
+			  var i = this.loopNum % this.toRotate.length;
+			  var fullTxt = this.toRotate[i];
+			
+			  if (this.isDeleting) {
+			    this.txt = fullTxt.substring(0, this.txt.length - 1);
+			  } else {
+			    this.txt = fullTxt.substring(0, this.txt.length + 1);
+			  }
+			
+			  this.el.innerHTML = '<span class="wrap">'+this.txt+'</span>';
+			
+			  var that = this;
+			  var delta = 300 - Math.random() * 100;
+			
+			  if (this.isDeleting) { delta /= 2; }
+			
+			  if (!this.isDeleting && this.txt === fullTxt) {
+			    delta = this.period;
+			    this.isDeleting = true;
+			  } else if (this.isDeleting && this.txt === '') {
+			    this.isDeleting = false;
+			    this.loopNum++;
+			    delta = 500;
+			  }
+			
+			  setTimeout(function() {
+			    that.tick();
+			  }, delta);
+			};
+			
+			window.onload = function() {
+			  var elements = document.getElementsByClassName('txt-rotate');
+			  for (var i=0; i<elements.length; i++) {
+			    var toRotate = elements[i].getAttribute('data-rotate');
+			    var period = elements[i].getAttribute('data-period');
+			    if (toRotate) {
+			      new TxtRotate(elements[i], JSON.parse(toRotate), period);
+			    }
+			  }
+	
+	
+	</script>
