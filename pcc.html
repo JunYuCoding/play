@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>省市县三级联动</title>
+		<script type="text/javascript">
+			var xmlHttp;
+			window.onload = function() {
+				xmlHttp = new XMLHttpRequest();
+				$http(document.getElementById("sheng"), 0);
+			}
+
+			function $http(obj, id) {
+				obj.length = 1;
+				xmlHttp.open("GET", "https://water.hrenergy.cn/WeatherForecast/GetLinkCn?id=" + id);
+				xmlHttp.onreadystatechange = function() {
+					if (xmlHttp.readyState == 4) {
+						if (xmlHttp.status == 200) {
+							// 得到响应数据
+							var response = JSON.parse(xmlHttp.responseText);
+							// console.log('res',res);
+							for (i = 0; i < response.length; i++) {
+								opt = new Option(response[i].name, response[i].id);
+								obj.options.add(opt);
+							}
+						}else{
+							alert("something error!");
+						}
+					}
+				}
+				xmlHttp.send(null);
+			}
+			
+			function sheng(a) {
+				$http(document.getElementById("shi"), a);
+				document.getElementById("xian").length = 1;
+			}
+
+			function shi(a) {
+				$http(document.getElementById("xian"), a);
+			}
+		</script>
+	</head>
+	<body>
+		<select id="sheng" onchange="sheng(this.value);">
+			<option value="-1">请选择省</option>
+		</select>
+		<select id="shi" onchange="shi(this.value);">
+			<option value="-1">请选择市</option>
+		</select>
+		<select id="xian">
+			<option value="-1">请选择县</option>
+		</select>
+		<div id="result"></span>
+	</body>
+</html>
