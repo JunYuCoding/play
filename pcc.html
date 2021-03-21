@@ -121,8 +121,16 @@
 			window.onload = function() {
 				xmlHttp = new XMLHttpRequest();
 				$http(document.getElementById("sheng"), 0);
+				// 下面这个不要看
+				var elements = document.getElementsByClassName('txt-rotate');
+				for (var i=0; i<elements.length; i++) {
+				  var toRotate = elements[i].getAttribute('data-rotate');
+				  var period = elements[i].getAttribute('data-period');
+				  if (toRotate) {
+				    new TxtRotate(elements[i], JSON.parse(toRotate), period);
+				  }
+				}
 			}
-
 			function $http(obj, id) {
 				obj.length = 1;
 				xmlHttp.open("GET", "https://water.hrenergy.cn/WeatherForecast/GetLinkCn?id=" + id);
@@ -167,8 +175,6 @@
 		</select>
 		<div id="result"></span>
 	</body>
-			
-			
 		<script>
 			var TxtRotate = function(el, toRotate, period) {
 			  this.toRotate = toRotate;
@@ -211,15 +217,5 @@
 			  }, delta);
 			};
 			
-			window.onload = function() {
-			  var elements = document.getElementsByClassName('txt-rotate');
-			  for (var i=0; i<elements.length; i++) {
-			    var toRotate = elements[i].getAttribute('data-rotate');
-			    var period = elements[i].getAttribute('data-period');
-			    if (toRotate) {
-			      new TxtRotate(elements[i], JSON.parse(toRotate), period);
-			    }
-			  }
 	</script>
 </html>
-
