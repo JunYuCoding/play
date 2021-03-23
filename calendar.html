@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>年月日</title>
+    <script>
+		var choosedYear = 2000;
+        window.onload = function(){
+            var StrYear =""
+            for(i=2000;i<=2030;i++){
+                StrYear +="<option value="+i+">"+i+"</option>"
+            }
+            document.getElementById("year").innerHTML = StrYear;
+			changeMonth(2000);
+			changeDay(1);
+		}
+		
+        function isRunYear(year){
+            if( (year%4==0 && year%100!=0)|| year%400==0){
+                return 29;
+            }
+            else{
+                return 28;
+            }
+        }
+		// 选择年份之后触发函数，改变月份
+        function changeMonth(option){
+			// 得到选择的是哪年
+            choosedYear = option;
+            var strMonth = ""
+            for(var i=1;i<=12;i++){
+                strMonth +="<option value="+i+">"+i+"</option>"
+            }
+            document.getElementById("month").innerHTML = strMonth;
+        }
+		// 选择月份之后触发函数，改变天数
+        function changeDay(option){
+            var strDay = ""
+            if(option==1||option==3||option==5||option==7||option==8||option==10||option==12){
+                for(var i=1;i<=31;i++){
+                    strDay +="<option value="+i+">"+i+"</option>"
+                }
+            }else if(option==4||option==6||option==9||option==11){
+                for(var i=1;i<=30;i++){
+                    strDay +="<option value="+i+">"+i+"</option>"
+                }
+            }else{
+				for(var i=1;i<=isRunYear(choosedYear);i++){
+					strDay +="<option value="+i+">"+i+"</option>"
+				}
+			}           
+            document.getElementById("day").innerHTML = strDay;
+        }
+    </script>
+</head>
+<body>
+    <select name="" id="year"  onchange='changeMonth(this.value)'>
+        <option value=""></option>
+    </select>
+    <select name="" id="month"  onchange='changeDay(this.value)'>
+        <option value=""></option>
+    </select>
+    <select name="" id="day">
+        <option value=""></option>
+    </select>
+
+</body>
+</html>
